@@ -1,10 +1,11 @@
 % Script to model the osnet of the first long cycle as a sequence of Bernouilli trials with variable probabilities p(j) at generation j
 
 close all
-fig_properties
 
-addpath('./Supporting material/Codes')
-addpath('./Supporting material/Data')
+addpath('./Supporting_materials/Codes')
+addpath('./Supporting_materials/Data')
+
+fig_properties
 
 tr=load('TelomeraseNegative.mat');
 data_exp=tr.OrdtryT528total160831;

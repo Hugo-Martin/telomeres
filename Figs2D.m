@@ -1,10 +1,11 @@
 % Script to model the osnet of the first long cycle as a sequence of Bernouilli trials with variable probabilities p(j) at generation j
 
 close all
-fig_properties
 
-addpath('./Supporting material/Codes')
-addpath('./Supporting material/Data')
+addpath('./Supporting_materials/Codes')
+addpath('./Supporting_materials/Data')
+
+fig_properties
 
 tr=load('TelomeraseNegative.mat');
 data_exp=tr.OrdtryT528total160831;
@@ -41,7 +42,7 @@ for j = 1:numel(data_exp)
             data = [data, find(v > threshold,1)];
         end
     else
-        no_LC = [no_LC, numel(v)]; % durée en générations des lignées sans cycle long
+        no_LC = [no_LC, numel(v)]; % nb of generations in a lineage without long cycles
     end
 end
 
@@ -83,11 +84,11 @@ maxiter = 5000;
 maxfunevals = 8000;
 
 
-[fitted_curve,gof,~,~] = custom_best_fit((1:numel(P_realiste_internal))',P_realiste_internal',fitfun,x0,tol,maxiter,maxfunevals);
+[fitted_curve,gof,~,~] = custom_best_fit((1:numel(P_realistic))',P_realistic',fitfun,x0,tol,maxiter,maxfunevals);
 
 c = coeffvalues(fitted_curve);
-a_internal = c(1); b_internal = c(2);
-%a = 59.07; b = 14.3;
+a = c(1); b = c(2);
+
 fit_sigm = 1./(1 + exp(-((1:max(data)) - a)/b));
 
 
@@ -105,7 +106,7 @@ end
 
 %% Statistical tests
 
-[~, vect_p(i), ~,edges,binned_expected] = sequence_bernouilli(data,pmf_sigm);
+[~, vect_p(i), ~,~,~] = sequence_bernouilli(data,pmf_sigm);
 
 
 end

@@ -4,11 +4,13 @@
 
 
 close all
-pourarticle=1; %parametres de la figure si on la fait pour l'article
+
 min_length_traj=3;
+
+addpath('./Supporting_materials/Codes')
+addpath('./Supporting_materials/Data')
+
 fig_properties
-addpath('./Supporting material/Codes')
-addpath('./Supporting material/Data')
 
 DOX=0; %1 to take only cycles after DOX addition, else all
 
@@ -60,7 +62,6 @@ ax.TickDir = 'out';
 
 xlabel(label_gene)
 ylabel(label_celldur)
-%title('Evolution of the quartiles of the durations of the cell cycles of wild type yeasts','FontSize',26)
 
 legend({'1st quartile','Median','3rd quartile'},'FontSize',22,'location','northwest')
 title('Evolution of cell cycle durations for the WT as generations pass by')

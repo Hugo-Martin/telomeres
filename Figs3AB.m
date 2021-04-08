@@ -4,11 +4,12 @@
 
 format long
 
-addpath('./Supporting material/Codes')
-addpath('./Supporting material/Data')
-addpath('./Supporting material/Codes/optimization')
+addpath('./Supporting_materials/Codes')
+addpath('./Supporting_materials/Data')
+addpath('./Supporting_materials/Codes/optimization')
 
 fig_properties
+
 %% Preparation of data and initial distribution
 
 

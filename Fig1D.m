@@ -1,11 +1,11 @@
 close all
-fig_properties
-addpath('./Supporting material/Codes')
-addpath('./Supporting material/Data')
+
+addpath('./Supporting_materials/Codes')
+addpath('./Supporting_materials/Data')
 
 min_length_traj=3;
 
-
+fig_properties
 
 tr=load('TelomeraseNegative.mat');
 data_exp=tr.OrdtryT528total160831;

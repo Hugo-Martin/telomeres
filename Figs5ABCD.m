@@ -8,17 +8,17 @@
 
 close all
 
-fig_properties
+
 
 min_length_traj=3;
 
 tr=load('TelomeraseNegative.mat');
 data_exp=tr.OrdtryT528total160831;
 
-addpath('./Supporting material/Codes')
-addpath('./Supporting material/Data')
+addpath('./Supporting_materials/Codes')
+addpath('./Supporting_materials/Data')
+fig_properties
 
-%ended_exp=0; %1 si on ne veut que les lignées terminées, 0 sinon
 DOX_exp=1; %1 si on veut après l'addition de DOX, 0 si on prend tout.
 
 [cycle_lengths, indeces, ~, ended]=extraction(data_exp,DOX_exp,min_length_traj);

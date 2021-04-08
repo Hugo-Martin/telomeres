@@ -4,15 +4,16 @@
 close all
 
 min_length_traj=3;
-%addpath('../')
+
+addpath('./Supporting_materials/Codes')
+addpath('./Supporting_materials/Data')
+
 
 tr=load('TelomeraseNegative.mat');
 data_exp=tr.OrdtryT528total160831;
 
-fig_properties
 
-addpath('./Supporting material/Codes')
-addpath('./Supporting material/Data')
+fig_properties
 
 DOX=0; %1 to take only cycles after DOX addition, else all
 

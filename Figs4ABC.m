@@ -1,20 +1,13 @@
-%On étudie l'apparition du deuxième cycle long : nombre de divisions entre
-%le premier et le deuxième, indépendance de cette quantité du moment
-%d'apparition du premier cycle long
-%repris par Marie en mars 2021 pour faire la même chose mais uniquement sur
-%les 1ers cycles longs internes
-
-%clear all
-
+%Study of the onset of the second long cycle
 
 close all
-fig_properties
-addpath('./Supporting material/Codes')
-addpath('./Supporting material/Data')
+
+addpath('./Supporting_materials/Codes')
+addpath('./Supporting_materials/Data')
 
 min_length_traj=3;
 
-
+fig_properties
 
 tr=load('TelomeraseNegative.mat');
 data_exp=tr.OrdtryT528total160831;
