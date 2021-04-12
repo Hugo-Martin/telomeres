@@ -11,7 +11,7 @@ tr=load('TelomeraseNegative.mat');
 data_exp=tr.OrdtryT528total160831;
 
 
-DOX_exp=1; %1 si on veut après l'addition de DOX, 0 si on prend tout.
+DOX_exp=1;
 
 [cycles_duration, indeces, ~, ended]=extraction(data_exp,DOX_exp,min_length_traj);
 

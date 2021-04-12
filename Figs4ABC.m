@@ -15,7 +15,7 @@ data_exp=tr.OrdtryT528total160831;
 
 tested_threshold = 9:40;
 
-DOX_exp=1; %1 si on veut après l'addition de DOX, 0 si on prend tout.
+DOX_exp=1;
 
 [cycles_duration, indeces, ~, ~]=extraction(data_exp,DOX_exp,min_length_traj);
 
@@ -27,12 +27,8 @@ prop_one_div_intern=zeros(size(tested_threshold));
 
 for i = 1:numel(tested_threshold)
     threshold = tested_threshold(i);
-%% Hypothèse indépendance entre apparition du premier et différence entre premier et deuxième
 
-data = []; % n x 5, sur chaque ligne l'indice du premier CL, du deuxième, numéro de la lignée (uniquement pour celles qui comptent au moins deux cycles longs), 1 si le premier est dans la sénescence et 0 sinon, idem pour le deuxième
-% on exclut les lignées dont l'un des deux premiers cycles longs se trouve
-% dans une séquence finale de long qui n'est pas la sénescence (lignée non
-% terminée)
+data = [];
 
 for j = 1:numel(data_exp)
     v = cycles_duration(indeces == j);
@@ -44,7 +40,6 @@ end
 
 proportion_lineages_with_two_consecutive_long_cycles(i) = sum(data(2,:) - data(1,:) == 1)./size(data,2);
 
-%% Loi geom frist to second
 
 
 [~, ~, ~, pval(i)] = test_geom(data(2,:)-data(1,:), 1, 0, size(data,1),0);
@@ -78,7 +73,6 @@ xlabel('Number of generations between the first two long cycles')
 ylabel('Count')
 ax_properties
 savefig('Fig4A_TTMarch21.fig')
-%title('Threshold = 18')
 end
 
 end
@@ -89,7 +83,6 @@ hold on
 plot(tested_threshold*10,0.05*ones(size(pval)),'LineWidth',3,'Color',ColorFit1)
 xlabel('Threshold (min)')
 ylabel('p-value')
-%title('\chi^2 goodness of fit for a geometric distribution')
 ax_properties
 ylim([0 1])
 xlim([min(tested_threshold)*10 max(tested_threshold)*10])
