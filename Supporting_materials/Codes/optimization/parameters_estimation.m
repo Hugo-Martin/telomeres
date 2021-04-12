@@ -3,8 +3,7 @@
 function [parameters_optim,cout] = parameters_estimation(varargin)
 
 %INPUT:
-%varargin: either empty or =
-%support,repartition,data,repet,LoBounds,UpBounds
+%varargin: either empty or = support,repartition,data,repet,LoBounds,UpBounds
 
 if nargin == 0 % called for a single estimation
     %% Preparation of data and initial distribution
@@ -34,7 +33,7 @@ if nargin == 0 % called for a single estimation
         v = duration(indeces == j);
         if any(v > threshold)
             l = find(v >threshold,1);
-            if any(v(l:end) < threshold)
+            if any(v(l:end) <= threshold)
                 data = [data, l];
             end
         end

@@ -17,12 +17,12 @@ function e = fitness_mean_error_exp(param,repet,sorted_data,support,repartition,
 
 %disp(nargin)
 
-if nargin == 7
+if nargin == 7 % called with scaled data
     LoBounds = [varargin{1}];
     UpBounds = [varargin{2}];
     a = LoBounds(1)*((UpBounds(1)/LoBounds(1))^param(1));
     b = LoBounds(2)*((UpBounds(2)/LoBounds(2))^param(2));
-elseif nargin == 5
+elseif nargin == 5 % called with unscaled data
     a = param(1);
     b = param(2);
 else
@@ -34,7 +34,7 @@ nn=zeros(numel(sorted_data)*repet,1);
 
 
     parfor j=1:numel(sorted_data)*repet
-        nn(j) = generation_senescence_expo(a,b,support,repartition);
+        nn(j) = generation_senescence(a,b,support,repartition);
     end
 
 nn=flip(sort(reshape(nn,numel(sorted_data),repet)));
